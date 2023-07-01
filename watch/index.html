@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="app">
+    <h1>監視プロパティ</h1>
+    <li>特手のデータまたは、算出プロパティの状態を監視して、変化があったときに登録した処理を自動的に実行できるもの</li>
+    <li>Ex) 検索フォームの値が変わったタイミングで自動的にAjaxを行なって結果を一覧表示</li>
+
+
+    <p>{{ message }}</p>
+    <p>
+      <input type="text" v-model="message">
+    </p>
+
+    <p><input type="text" v-model="km">km</p>
+    <p><input type="text" v-model="m">m</p>
+
+    <p>
+      <input type="text" v-model="firstName">
+    </p>
+    <p>
+      <input type="text" v-model="lastName">
+    </p>
+    <p>
+      fullName: {{ fullName }}
+    </p>
+
+    <p>nestされた値を監視する場合、deepをtrueにする</p>
+    <ul>
+      <li v-for="color in colors">
+        {{ color.name }}
+      </li>
+    </ul>
+    <button v-on:click="onClick">Click</button>
+  </div>
+  <script src="https://unpkg.com/vue@3.1.5"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

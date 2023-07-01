@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="app">
+    <h2>インラインメソッドハンドラ</h2>
+    <p>{{ counter }}</p>
+    <button v-on:click="counter++">Click!</button>
+
+    <h2>メソッドイベントハンドラ</h2>
+    <p>{{ counter }}</p>
+    <button v-on:click="clickHandler">Click!</button>
+
+    <h2>イベントオブジェクト</h2>
+    <p>{{ counter }}</p>
+    <button v-on:click="clickHandler">Click!</button><br>
+    {{ event }}
+
+    <h2>イベントハンドラに引数を渡す</h2>
+    <button v-on:click="clickHandler2($event, 'Vue.js')">Click!</button>
+    <p>{{ message }}</p>
+
+    <h2>イベント修飾子: once イベントハンドラを1回だけ実施</h2>
+    <button v-on:click.once="clickHandler3">Now!</button>
+    <p>{{ time }}</p>
+
+    <h2>v-on省略記法: @</h2>
+    <button @click.once="clickHandler3">Now!</button>
+    <p>{{ time }}</p>
+  </div>
+  <script src="https://unpkg.com/vue@3.1.5"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="app">
+    <h2>v-model: 双方向バイディング</h2>
+    <p>{{ message }}</p>
+    <input type="text" v-model="message">
+    <pre>{{ $data }}</pre>
+
+    <h2>複数行テキストについて</h2>
+    <p>{{ message }}</p>
+    <textarea v-model="message"></textarea>
+    <li>textareaを使う場合v-modelを使用する</li>
+
+    <h2>チェックボックス 単体</h2>
+    <label for="checkbox">{{ checked }}</label>
+    <input type="checkbox" id="checkbox" v-model="checked">
+
+    <h2>チェックボックス 複数</h2>
+    <label for="red">RED</label>
+    <input type="checkbox" id="red" value="Red" v-model="colors">
+    <label for="green">GREEN</label>
+    <input type="checkbox" id="green" value="Green" v-model="colors">
+    <label for="blue">BLUE</label>
+    <input type="checkbox" id="blue" value="Blue" v-model="colors">
+    <p>{{ colors }}</p>
+
+    <h2>ラジオボタン</h2>
+    <input type="radio" id="red" value="Red" v-model="color">
+    <label for="red">RED</label>
+    <input type="radio" id="green" value="Green" v-model="color">
+    <label for="red">GREEN</label>
+    <input type="radio" id="blue" value="Blue" v-model="color">
+    <label for="red">BLUE</label>
+    <p>{{ color }}</p>
+
+    <h2>セレクトボックス 単体</h2>
+    <select v-model="selected">
+      <option disabled>please select one</option>
+      <option>Red</option>
+      <option>Green</option>
+      <option>Blue</option>
+    </select>
+    <p>{{ selected }}</p>
+
+    <h2>セレクトボックス 複数</h2>
+    <select v-model="arrSelected" multiple>
+      <option>Red</option>
+      <option>Green</option>
+      <option>Blue</option>
+    </select>
+    <p>{{ arrSelected }}</p>
+
+    <h2>修飾子</h2>
+    <li>.lazy: バインドタイミングを遅延させる</li>
+    <input type="text" v-model.lazy="message">
+    <p>{{ message }}</p>
+    <li>.trim: 入力前後の空白を削除してからデータに代入</li>
+    <input type="text" v-model.trim="message"><br>
+    <input type="text" v-model="message">
+    <pre>{{ $data }}</pre>
+    <li>.number: 入力値を数値型に型変換してからデータに代入</li>
+    <input type="number" v-model.number="age">
+    {{ age + 10 }}
+  </div>
+  <script src="https://unpkg.com/vue@3.1.5"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

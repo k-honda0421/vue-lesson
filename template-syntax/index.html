@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="app">
+    <h1>v-once</h1>
+    <p>初回だけ使いたい時に使用する</p>
+    <p v-once>{{ message }}</p>
+    <button v-on:click="clicHandler">click</button>
+    <li>ボタンを押すとmessageが反転する</li>
+    <li>しかし、v-onceで静的コンテンツ化されているため、変化なし</li>
+
+    <h1>v-pre</h1>
+    <p>要素とすべての子要素のコンパイルをスキップしたい時に使用する</p>
+    <p v-pre>{{ message2 }}</p>
+    <li>v-preを付与することでコンパイルがスキップされるので、マスタッシュがそのまま表示されている</li>
+
+    <h1>v-html</h1>
+    <p>プレーンなHTMLを挿入したい時に使用する</p>
+    <p>{{ message3 }}</p>
+    <p v-html="message3"></p>
+    <li>XSS脆弱性を引き起こす可能性がある</li>
+
+    <h1>v-cloak</h1>
+    <p>ページが表示開始してから、インスタンスの作成が終わるまでに間に実行したい処理に使用する</p>
+    <p>ちらつき防止など</p>
+    <p>{{ message4 }}</p>
+    <p v-cloak>{{ message4 }}</p>
+
+    <h1>v-text</h1>
+    <p>マスタッシュの代わりにディレクティブを使いたい時に使用する</p>
+    <h2>mustash</h2>
+    <p>{{ message5 }}</p>
+    <h2>v-text</h2>
+    <p v-text="message5"></p>
+
+    <h1>javascript式を使う</h1>
+    <p>データバインディング内部で、javascript式を利用できる</p>
+    <p>単一式のみ実行可能</p>
+    <p>{{ message6 }}</p>
+    <p>{{ number + 1 }}</p>
+    <p>{{ message6.split('').reverse().join('') }}</p>
+    <p>{{ ok ? 'YES' : 'NO' }}</p>
+
+    <h1>v-bindの省略機能</h1>
+    <a v-bind:href="url">Link1</a><br>
+    <a :href="url">Link2</a>
+  </div>
+  <script src="https://unpkg.com/vue@3.1.5"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

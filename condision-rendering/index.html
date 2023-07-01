@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="app">
+    <h2>v-if: 条件付きレンダリング</h2>
+    <p v-if="toggle">YES</p>
+    <p v-else>No</p>
+
+    <h2>v-else-if</h2>
+    <p v-if="color === 'red'">stop</p>
+    <p v-else-if="color === 'yellow'">caution</p>
+    <p v-else>Not red/yellow/blue</p>
+
+    <h2>v-show: 要素のdisplay cssを切り替え表示、非表示にする</h2>
+    <p v-show="toggle2">Hello Vue.js</p>
+  </div>
+  <script src="https://unpkg.com/vue@3.1.5"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

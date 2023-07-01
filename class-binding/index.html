@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="app">
+    <h2>クラスのデータバインディング</h2>
+    <p>Hello <span class="bg-gray text-blue" v-bind:class="{large: isLarge, 'text-danger': hasError}">Vue.js</span></p>
+
+    <h2>複数のクラスを動的に切り替える</h2>
+    <p>Hello <span v-bind:class="largeClass">Vue.js</span></p>
+    <p>Hello <span v-bind:class="[largeClass, dangerClass]">Vue.js</span></p>
+
+    <h2>プレーンクラスを共存</h2>
+    <p>Hello <span v-bind:class="classObject">Vue.js</span></p>
+
+    <h2>三項演算子を使ったクラスの適用</h2>
+    <p>Hello <span v-bind:class="isLarge2 ? largeClass2: ''">Vue.js</span></p>
+    <p>Hello <span v-bind:class="[isLarge2 ? largeClass2: '', dangerClass2]">Vue.js</span></p>
+
+    <h2>インラインスタイルのデータバインディング</h2>
+    <p>Hello <span v-bind:style="{color: color, fontSize: fontSize + 'px'}">Vue.js</span></p>
+
+    <h2>インラインスタイルのデータバインディング  ~オブジェクト編~</h2>
+    <p>Hello <span v-bind:style="styleObject">Vue.js</span></p>
+  </div>
+  <script src="https://unpkg.com/vue@3.1.5"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
